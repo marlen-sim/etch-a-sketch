@@ -14,8 +14,8 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    height: 360px;
-    width: 360px;
+    height: 560px;
+    width: 560px;
     background-color: bisque;
 }
 
@@ -23,7 +23,6 @@ body {
     display: flex;
     flex-grow: 1;
     width: 100%;
-    border: 1px solid;
 }
 
 .boxes {

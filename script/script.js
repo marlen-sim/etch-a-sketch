@@ -34,6 +34,8 @@ btn.addEventListener("click", () => {
     row.innerHTML = boxHTML;
   });
   console.log(boxHTML);
+  boxHTML = "";
+  rowsHTML = "";
 });
 
 function createBoxes(quantity = 16) {
@@ -48,3 +50,12 @@ function createRows(quantity = 16) {
   }
   container.innerHTML = rowsHTML;
 }
+
+container.addEventListener("mouseover", (event) => {
+  const box = document.querySelector(".boxes");
+  const isBox = container.contains(box);
+  if (isBox) {
+    event.stopPropagation();
+    event.target.style.background = "blue";
+  }
+});
