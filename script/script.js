@@ -2,38 +2,49 @@ const container = document.querySelector(".container");
 const btn = document.querySelector(".btn");
 const row = document.createElement("div");
 const box = document.createElement("div");
-const rows = document.querySelector(".rows");
 
 row.classList.add("row");
 
 let rowsHTML = "";
-function createRows() {
+function createRow() {
   rowsHTML = rowsHTML + '<div class="rows"></div>';
   return rowsHTML;
 }
 
 function addRows() {
   container.innerHTML = rowsHTML;
+  return console.log((container.innerHTML = rowsHTML));
 }
-
+let boxHTML = "";
 function createBox() {
-  let boxHTML = boxHTML + '<div class="boxes"></div>';
+  boxHTML = boxHTML + '<div class="boxes"></div>';
   return boxHTML;
 }
 
 function addBoxes() {
+  const rows = document.querySelector(".rows");
   rows.innerHTML = boxHTML;
 }
 
 btn.addEventListener("click", () => {
-  // let grid = prompt("Выбери размер сетки (max 100): ");
-  createGrid();
-  console.log(createGrid());
+  let quantity = prompt("Выбери размер сетки (max 100): ");
+  createBoxes(quantity);
+  createRows(quantity);
+  document.querySelectorAll(".rows").forEach((row) => {
+    row.innerHTML = boxHTML;
+  });
+  console.log(boxHTML);
 });
 
-function createGrid(quantity = 16) {
-  for (let i = 0; i < quantity; i++) {
-    createRows();
-    addRows();
+function createBoxes(quantity = 16) {
+  for (let index = 0; index < quantity; index++) {
+    createBox();
   }
+}
+
+function createRows(quantity = 16) {
+  for (let index = 0; index < quantity; index++) {
+    createRow();
+  }
+  container.innerHTML = rowsHTML;
 }
