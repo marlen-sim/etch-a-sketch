@@ -28,6 +28,7 @@ function addBoxes() {
 
 btn.addEventListener("click", () => {
   let quantity = prompt("Выбери размер сетки (max 100): ");
+  quantity > 100 ? (quantity = 100) : quantity;
   createBoxes(quantity);
   createRows(quantity);
   document.querySelectorAll(".rows").forEach((row) => {
